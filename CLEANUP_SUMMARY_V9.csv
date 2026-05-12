@@ -1,0 +1,5 @@
+category,action
+optional chat explanation layer,removed from submission package
+web demo mock assistant Q&A,removed; static showcase retained
+HoshiLM-KR training data,retained
+HoshiLM-KR tokenizer/config/model/train/generate,retained

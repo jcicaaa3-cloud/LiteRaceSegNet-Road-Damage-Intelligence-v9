@@ -1,0 +1,99 @@
+{
+  "created_at": "20260509_214322",
+  "dataset_root": "datasets/pothole_binary/processed",
+  "backup": "datasets/_v6_backup_20260509_214322/pothole_binary_processed",
+  "before": {
+    "train_images": 110,
+    "train_masks": 110,
+    "val_images": 10,
+    "val_masks": 10
+  },
+  "old_val_added_to_train_with_prefix": "oldval_",
+  "old_val_added_pairs": [
+    [
+      "oldval_pothole_001.png",
+      "oldval_pothole_001.png"
+    ],
+    [
+      "oldval_pothole_002.png",
+      "oldval_pothole_002.png"
+    ],
+    [
+      "oldval_pothole_003.png",
+      "oldval_pothole_003.png"
+    ],
+    [
+      "oldval_pothole_004.png",
+      "oldval_pothole_004.png"
+    ],
+    [
+      "oldval_pothole_005.png",
+      "oldval_pothole_005.png"
+    ],
+    [
+      "oldval_pothole_006.png",
+      "oldval_pothole_006.png"
+    ],
+    [
+      "oldval_pothole_007.png",
+      "oldval_pothole_007.png"
+    ],
+    [
+      "oldval_pothole_008.png",
+      "oldval_pothole_008.png"
+    ],
+    [
+      "oldval_pothole_009.png",
+      "oldval_pothole_009.png"
+    ],
+    [
+      "oldval_pothole_010.png",
+      "oldval_pothole_010.png"
+    ]
+  ],
+  "new_val_zip": "/home/ubuntu/LRS_NEW_VAL_10_PAIRS_FIXED.zip",
+  "new_val_detected_root": "/tmp/tmp1mwgy4s0/new_val",
+  "new_val_pairs": [
+    [
+      "newval_001.png",
+      "newval_001.png"
+    ],
+    [
+      "newval_002.png",
+      "newval_002.png"
+    ],
+    [
+      "newval_003.png",
+      "newval_003.png"
+    ],
+    [
+      "newval_004.png",
+      "newval_004.png"
+    ],
+    [
+      "newval_005.png",
+      "newval_005.png"
+    ],
+    [
+      "newval_006.png",
+      "newval_006.png"
+    ],
+    [
+      "newval_007.png",
+      "newval_007.png"
+    ],
+    [
+      "newval_008.png",
+      "newval_008.png"
+    ],
+    [
+      "newval_009.png",
+      "newval_009.png"
+    ],
+    [
+      "newval_010.png",
+      "newval_010.png"
+    ]
+  ],
+  "expected_val_count": 10
+}

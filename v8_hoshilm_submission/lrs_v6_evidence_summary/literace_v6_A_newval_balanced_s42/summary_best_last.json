@@ -1,0 +1,29 @@
+{
+  "csv": "final_evidence_v6_newval_with_visuals/literace_v6_A_newval_balanced_s42/train_log.csv",
+  "miou_key": "miou_binary",
+  "damage_key": "iou_damage",
+  "best_row_number": 3,
+  "best": {
+    "﻿epoch": "3",
+    "lr": "0.0004368614437687602",
+    "train_loss": "1.3924917131662369",
+    "val_loss": "0.8568061788876852",
+    "pixel_acc": "0.9157063802083333",
+    "miou_binary": "0.7987983434497284",
+    "iou_damage": "0.7028867287923498",
+    "iou_background": "0.8947099581071071",
+    "best": "1"
+  },
+  "last_row_number": 27,
+  "last": {
+    "﻿epoch": "27",
+    "lr": "0.00032958316858379226",
+    "train_loss": "1.2180814524491628",
+    "val_loss": "0.8302182157834371",
+    "pixel_acc": "0.9006281534830729",
+    "miou_binary": "0.769923918224904",
+    "iou_damage": "0.6634250629657832",
+    "iou_background": "0.8764227734840248",
+    "best": "0"
+  }
+}

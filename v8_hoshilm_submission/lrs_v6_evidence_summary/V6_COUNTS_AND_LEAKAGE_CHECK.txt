@@ -1,0 +1,15 @@
+=== original current dataset ===
+train images: 120
+train masks : 120
+val images  : 10
+val masks   : 10
+=== v6 leakage check ===
+oldval_pothole in train should be 10: 10
+oldval_newval in train should be 0 : 0
+newval in train should be 0        : 0
+newval in val should be 10         : 10
+=== augmented dataset ===
+train images: 2400
+train masks : 2400
+val images  : 10
+val masks   : 10

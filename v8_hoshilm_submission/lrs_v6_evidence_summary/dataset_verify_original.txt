@@ -1,0 +1,3 @@
+train images=120 masks=120 missing_masks=0 missing_images=0 size_mismatch=0 empty_masks=0
+val images=10 masks=10 missing_masks=0 missing_images=0 size_mismatch=0 empty_masks=0
+[OK] all pairs valid

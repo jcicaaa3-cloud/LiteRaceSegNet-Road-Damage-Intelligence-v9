@@ -1,0 +1,37 @@
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.env
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Generated training outputs
+final_evidence/
+runs/
+**/runs/
+logs/
+wandb/
+
+# Large local datasets/checkpoints generated after training
+# Keep bundled small evidence files intentionally included in this archive.
+*.ckpt
+*.onnx
+*.safetensors
+
+# Local cloud keys
+*.pem
+*.key
+# Private / generated artifacts
+.env.*
+*.pyc
+outputs/
+checkpoints/
+*.pt
+*.pth
+*.log
