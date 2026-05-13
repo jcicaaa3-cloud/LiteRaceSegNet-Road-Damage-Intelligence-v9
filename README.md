@@ -1,9 +1,26 @@
-# LiteRaceSegNet v9 — Road Damage Segmentation + Project QA
+# LiteRaceSegNet v10 — Road Damage Segmentation + Project QA Hub
 
 PyTorch 기반 도로 손상 semantic segmentation 포트폴리오입니다. 핵심 모델은 **LiteRaceSegNet** 경량 CNN이며, **SegFormer baseline 비교**와 **HoshiLM Project QA 보조 인터페이스**를 함께 제공합니다.
 
 > LiteRaceSegNet = prediction model  
 > HoshiLM Project QA = reporting/support interface
+
+## V10 GitHub Pages demo hub
+
+This repository includes a GitHub Pages landing page that connects the previous v7 workstation demo, the repository-contained static prototype, and the HoshiLM Project QA preview.
+
+| Demo | Link | Note |
+| --- | --- | --- |
+| v7 Workstation Demo | https://jcicaaa3-cloud.github.io/LiteRaceSegNet-v7-workstation-demo/ | Existing professor-preview static demo |
+| v10 Static Prototype | `v8_hoshilm_submission/web_demo/` | Repo-contained static prototype |
+| HoshiLM Project QA UI | `v8_hoshilm_submission/web_project_qa/` | UI preview on Pages; live answers require Python API |
+
+Pages root after setup:
+
+```text
+https://jcicaaa3-cloud.github.io/LiteRaceSegNet-Road-Damage-Intelligence-v9/
+```
+
 
 ## GitHub visual overview
 

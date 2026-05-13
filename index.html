@@ -1,84 +1,173 @@
-﻿<!doctype html>
+<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>LiteRaceSegNet v9</title>
+  <title>LiteRaceSegNet v10</title>
+  <meta name="description" content="LiteRaceSegNet v10: road damage segmentation prototype with HoshiLM Project QA extension." />
   <style>
+    :root {
+      --bg: #f8fafc;
+      --panel: rgba(255,255,255,.86);
+      --ink: #0f172a;
+      --muted: #475569;
+      --line: #dbeafe;
+      --blue: #2563eb;
+      --teal: #0f766e;
+      --violet: #7c3aed;
+      --shadow: 0 22px 70px rgba(15, 23, 42, .12);
+    }
+    * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: #0f172a;
-      color: #e5e7eb;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(37,99,235,.13), transparent 34rem),
+        radial-gradient(circle at top right, rgba(20,184,166,.12), transparent 30rem),
+        linear-gradient(180deg, #ffffff 0%, var(--bg) 100%);
     }
-    main {
-      max-width: 980px;
-      margin: 0 auto;
-      padding: 72px 24px;
+    a { color: inherit; text-decoration: none; }
+    .wrap { max-width: 1180px; margin: 0 auto; padding: 56px 24px 72px; }
+    .hero {
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 28px;
+      align-items: center;
+      margin-bottom: 30px;
     }
-    .card {
-      background: #111827;
-      border: 1px solid #334155;
-      border-radius: 24px;
-      padding: 32px;
-      box-shadow: 0 20px 60px rgba(0,0,0,.35);
-    }
-    h1 {
-      font-size: 42px;
-      margin: 0 0 12px;
-    }
-    p {
-      line-height: 1.7;
-      color: #cbd5e1;
-    }
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 14px;
-      margin-top: 28px;
-    }
-    a {
-      color: inherit;
-      text-decoration: none;
-    }
-    .btn {
-      display: inline-block;
-      padding: 14px 18px;
-      border-radius: 14px;
-      background: #2563eb;
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(239,246,255,.78);
+      color: #1d4ed8;
       font-weight: 700;
+      font-size: 13px;
+      margin-bottom: 16px;
     }
-    .btn.secondary {
-      background: #334155;
+    h1 { font-size: clamp(40px, 6vw, 72px); line-height: .95; margin: 0 0 18px; letter-spacing: -0.055em; }
+    .lead { font-size: 18px; line-height: 1.7; color: var(--muted); margin: 0; max-width: 720px; }
+    .hero-card {
+      border: 1px solid #c7d2fe;
+      border-radius: 30px;
+      background: var(--panel);
+      padding: 22px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
     }
+    .hero-card img { width: 100%; display: block; border-radius: 20px; border: 1px solid #e2e8f0; }
+    .buttons { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 13px 17px;
+      border-radius: 14px;
+      font-weight: 800;
+      border: 1px solid transparent;
+      background: var(--blue);
+      color: white;
+      box-shadow: 0 12px 30px rgba(37,99,235,.22);
+    }
+    .btn.secondary { background: white; color: var(--ink); border-color: #cbd5e1; box-shadow: none; }
+    .btn.teal { background: var(--teal); box-shadow: 0 12px 30px rgba(15,118,110,.20); }
+    .btn.violet { background: var(--violet); box-shadow: 0 12px 30px rgba(124,58,237,.20); }
+    .section-title { margin: 44px 0 16px; font-size: 28px; letter-spacing: -0.03em; }
+    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 18px; }
+    .card {
+      border: 1px solid #e2e8f0;
+      border-radius: 24px;
+      background: rgba(255,255,255,.82);
+      padding: 22px;
+      box-shadow: 0 12px 36px rgba(15,23,42,.08);
+    }
+    .card h3 { margin: 0 0 9px; font-size: 20px; letter-spacing: -0.025em; }
+    .card p { margin: 0 0 16px; color: var(--muted); line-height: 1.65; }
+    .card .mini { font-size: 13px; color: #64748b; border-top: 1px solid #e2e8f0; padding-top: 12px; }
+    .visuals { display: grid; gap: 18px; }
+    .visuals img { width: 100%; border: 1px solid #dbeafe; border-radius: 22px; box-shadow: 0 14px 40px rgba(15,23,42,.10); background: white; }
     .note {
-      margin-top: 28px;
-      font-size: 14px;
-      color: #94a3b8;
+      margin-top: 22px;
+      border: 1px solid #bfdbfe;
+      background: #eff6ff;
+      color: #1e3a8a;
+      border-radius: 18px;
+      padding: 16px 18px;
+      line-height: 1.6;
+      font-weight: 650;
+    }
+    footer { margin-top: 42px; color: #64748b; font-size: 14px; }
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; }
+      .grid { grid-template-columns: 1fr; }
+      .wrap { padding-top: 34px; }
     }
   </style>
 </head>
 <body>
-  <main>
-    <section class="card">
-      <h1>LiteRaceSegNet v9</h1>
-      <p>
-        Lightweight road damage segmentation prototype with a HoshiLM Project QA extension.
-        LiteRaceSegNet is the prediction model, while HoshiLM Project QA is a reporting/support interface
-        for explaining experiment logs and project evidence.
-      </p>
-
-      <div class="buttons">
-        <a class="btn" href="./v8_hoshilm_submission/web_demo/">Open Static Prototype</a>
-        <a class="btn secondary" href="./v8_hoshilm_submission/web_project_qa/">Open Project QA UI</a>
-        <a class="btn secondary" href="https://github.com/jcicaaa3-cloud/LiteRaceSegNet-Road-Damage-Intelligence-v9">View GitHub Repository</a>
+  <main class="wrap">
+    <section class="hero">
+      <div>
+        <div class="badge">LiteRaceSegNet v10 · GitHub Pages Hub</div>
+        <h1>Road Damage Segmentation + Project QA</h1>
+        <p class="lead">
+          LiteRaceSegNet is the lightweight CNN segmentation prototype. HoshiLM Project QA is a separate reporting/support interface that explains experiment evidence. This page connects the v7 workstation demo, v9/v10 static prototype, and Project QA preview in one place.
+        </p>
+        <div class="buttons">
+          <a class="btn" href="https://jcicaaa3-cloud.github.io/LiteRaceSegNet-v7-workstation-demo/" target="_blank" rel="noopener">Open v7 Workstation Demo</a>
+          <a class="btn teal" href="./v8_hoshilm_submission/web_demo/">Open Static Prototype</a>
+          <a class="btn violet" href="./v8_hoshilm_submission/web_project_qa/">Open Project QA UI</a>
+          <a class="btn secondary" href="https://github.com/jcicaaa3-cloud/LiteRaceSegNet-Road-Damage-Intelligence-v9" target="_blank" rel="noopener">View GitHub Repo</a>
+        </div>
       </div>
-
-      <p class="note">
-        The Project QA UI requires a local or AWS Python API for live responses.
-        On GitHub Pages, it is shown as a static interface preview.
-      </p>
+      <div class="hero-card">
+        <img src="./docs/assets/literace_architecture_clean.png" alt="LiteRaceSegNet architecture overview" />
+      </div>
     </section>
+
+    <section>
+      <h2 class="section-title">Demo entry points</h2>
+      <div class="grid">
+        <article class="card">
+          <h3>v7 Workstation Demo</h3>
+          <p>Existing professor-preview page. Upload and server transmission are disabled; it shows a built-in static sample for UI review.</p>
+          <a class="btn secondary" href="https://jcicaaa3-cloud.github.io/LiteRaceSegNet-v7-workstation-demo/" target="_blank" rel="noopener">Open external demo</a>
+          <p class="mini">Kept as the stable public prototype preview.</p>
+        </article>
+        <article class="card">
+          <h3>v10 Static Prototype</h3>
+          <p>Internal static prototype included in this repository. Useful for showing repository-contained demo assets.</p>
+          <a class="btn secondary" href="./v8_hoshilm_submission/web_demo/">Open repo demo</a>
+          <p class="mini">Runs directly on GitHub Pages as a static page.</p>
+        </article>
+        <article class="card">
+          <h3>HoshiLM Project QA</h3>
+          <p>Project QA interface for evidence-grounded experiment reporting. Live answers require the local/AWS Python API.</p>
+          <a class="btn secondary" href="./v8_hoshilm_submission/web_project_qa/">Open QA preview</a>
+          <p class="mini">GitHub Pages shows the UI preview; `/api/chat` needs Python.</p>
+        </article>
+      </div>
+      <div class="note">
+        Boundary note: LiteRaceSegNet is the prediction model. HoshiLM Project QA does not generate segmentation masks or change segmentation results.
+      </div>
+    </section>
+
+    <section>
+      <h2 class="section-title">Visual overview</h2>
+      <div class="visuals">
+        <img src="./docs/github_assets/project_qa_flow.png" alt="HoshiLM Project QA flow" />
+        <img src="./docs/github_assets/repo_structure.png" alt="Repository structure for GitHub" />
+      </div>
+    </section>
+
+    <footer>
+      LiteRaceSegNet v10 integration page · public portfolio/research prototype package.
+    </footer>
   </main>
 </body>
 </html>
